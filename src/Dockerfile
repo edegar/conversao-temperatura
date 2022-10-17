@@ -1,10 +1,7 @@
 FROM node:current-alpine
-
-WORKDIR /usr/src/conversao-temperatura
-
-COPY src/. ./
+WORKDIR /app
+COPY package*.json .
 RUN npm install
-
+COPY . .
 EXPOSE 8080
-
 CMD [ "node", "server.js" ]
